@@ -1,10 +1,12 @@
-
 <!DOCTYPE html>
 <html lang="vi">
 <head>
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
     :root {
@@ -33,11 +35,13 @@
       margin: 0;
       padding: 0;
       overflow-x: hidden;
-      font-family: Arial, sans-serif;
+      font-family: 'Be Vietnam Pro', Arial, sans-serif;
       background: var(--paper);
       color: var(--ink);
       -webkit-text-size-adjust: 100%;
       text-size-adjust: 100%;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
     body > * {
@@ -54,68 +58,75 @@
     .header {
       background: linear-gradient(155deg, var(--navy), var(--navy-soft));
       color: white;
-      padding: 22px 16px;
+      padding: 24px 18px;
     }
 
     .eyebrow {
-      font-size: 11px;
+      font-size: 11.5px;
       font-weight: 700;
-      letter-spacing: 1.2px;
+      letter-spacing: 1.6px;
       color: var(--amber-light);
-      margin-bottom: 8px;
+      margin-bottom: 9px;
+      text-transform: uppercase;
     }
 
     .header h2 {
       margin: 0;
-      font-size: 21px;
-      line-height: 1.3;
+      font-size: 22px;
+      font-weight: 800;
+      line-height: 1.32;
+      letter-spacing: -0.2px;
     }
 
     .header p {
-      margin: 8px 0 0;
-      font-size: 13px;
-      line-height: 1.45;
+      margin: 9px 0 0;
+      font-size: 13.5px;
+      line-height: 1.55;
       color: #cbd5e1;
+      font-weight: 400;
     }
 
     .box {
       width: 100%;
       background: var(--card);
-      padding: 18px 14px 110px;
+      padding: 20px 16px 118px;
     }
 
     .note {
       display: flex;
-      gap: 8px;
+      gap: 9px;
       background: var(--amber-light);
       border: 1px solid #E7CD98;
       color: #5B4110;
-      padding: 12px;
+      padding: 13px 14px;
       border-radius: 12px;
-      font-size: 13px;
-      line-height: 1.45;
+      font-size: 13.5px;
+      line-height: 1.55;
+      font-weight: 500;
     }
 
     .section-title {
       display: flex;
       align-items: center;
-      gap: 8px;
-      margin: 24px 0 14px;
-      font-size: 15px;
-      font-weight: 700;
+      gap: 9px;
+      margin: 26px 0 15px;
+      font-size: 15.5px;
+      font-weight: 800;
       color: var(--navy);
+      letter-spacing: -0.1px;
     }
 
     .badge {
-      width: 23px;
-      height: 23px;
+      width: 24px;
+      height: 24px;
       border-radius: 7px;
       background: var(--amber);
       color: white;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      font-size: 12px;
+      font-size: 12.5px;
+      font-weight: 700;
       flex: none;
     }
 
@@ -123,7 +134,7 @@
     .item-grid {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 14px;
+      gap: 15px;
       width: 100%;
     }
 
@@ -135,9 +146,11 @@
     }
 
     label {
-      font-size: 13px;
+      font-size: 13.5px;
       font-weight: 700;
-      margin-bottom: 6px;
+      margin-bottom: 7px;
+      color: var(--navy);
+      letter-spacing: -0.1px;
     }
 
     .req {
@@ -155,13 +168,22 @@
       border-radius: 10px;
       background: #FCFBF8;
       color: var(--ink);
-      font-size: 16px;
+      font-family: 'Be Vietnam Pro', Arial, sans-serif;
+      font-size: 15.5px;
+      font-weight: 500;
       outline: none;
     }
 
     textarea {
       min-height: 80px;
       resize: vertical;
+      font-weight: 400;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      font-weight: 400;
+      color: #9AA3B5;
     }
 
     input:focus,
@@ -209,7 +231,10 @@
     .item-title {
       font-weight: 800;
       color: var(--navy);
-      font-size: 14px;
+      font-size: 14.5px;
+      display: flex;
+      align-items: center;
+      letter-spacing: -0.1px;
     }
 
     .num {
@@ -222,16 +247,19 @@
       background: var(--navy);
       color: var(--amber-light);
       font-size: 12px;
-      margin-right: 6px;
+      font-weight: 700;
+      margin-right: 7px;
     }
 
     button {
       min-height: 46px;
       border: none;
       border-radius: 10px;
-      font-size: 14px;
+      font-size: 14.5px;
       font-weight: 700;
+      font-family: 'Be Vietnam Pro', Arial, sans-serif;
       cursor: pointer;
+      letter-spacing: 0.1px;
     }
 
     .remove {
@@ -269,6 +297,7 @@
     .submit {
       background: var(--green);
       color: white;
+      letter-spacing: 0.4px;
     }
 
     @media screen and (min-width: 768px) {
@@ -283,7 +312,7 @@
       }
 
       .header h2 {
-        font-size: 26px;
+        font-size: 27px;
       }
 
       .box {
@@ -329,7 +358,7 @@
       input,
       select,
       textarea {
-        font-size: 14px;
+        font-size: 14.5px;
       }
     }
   </style>
@@ -368,14 +397,18 @@
             <option>Văn phòng</option>
             <option>Bệnh viện Bình Dân</option>
             <option>Bệnh viện Y học cổ truyền</option>
-            <option>Bệnh viện Ung Bướu</option>
-            <option>Bệnh viện Nhi Đồng 1</option>
-            <option>Bệnh viện Nhi Đồng Thành Phố</option>
-            <option>Bệnh viện Quân Y 175</option>
-            <option>Trường ĐHYK Phạm Ngọc Thạch</option>
+            <option>Bệnh viện Ung Bướu TP. Hồ Chí Minh – Cơ sở 1</option>
+            <option>Bệnh viện Ung Bướu TP. Hồ Chí Minh – Cơ sở 2</option>
             <option>Bệnh viện Chợ Rẫy</option>
+            <option>Bệnh viện Nhi Đồng Thành phố</option>
+            <option>Bệnh viện Nhi Đồng 1</option>
             <option>Bệnh viện Trưng Vương</option>
-            <option>Bệnh viện ĐKKV Củ Chi</option>
+            <option>Bệnh viện Đa khoa Khu vực Củ Chi</option>
+            <option>Trường Đại học Y khoa Phạm Ngọc Thạch</option>
+            <option>Bệnh viện Quân y 175</option>
+            <option>Bệnh viện Chấn thương Chỉnh hình</option>
+            <option>Bệnh viện Phạm Ngọc Thạch – Cơ sở 1</option>
+            <option>Bệnh viện Đa khoa Khu vực Bình Chánh</option>
             <option>Khác</option>
           </select>
         </div>
