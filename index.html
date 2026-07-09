@@ -287,10 +287,9 @@
     import {
       getAuth,
       GoogleAuthProvider,
-      signInWithRedirect,
-      getRedirectResult,
-      onAuthStateChanged,
-      signOut
+     signInWithPopup,
+onAuthStateChanged,
+signOut
     } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-auth.js";
 
     const firebaseConfig = {
@@ -312,9 +311,14 @@
     let currentUser = null;
     let stt = 0;
 
-    window.loginGoogle = function () {
-      signInWithRedirect(auth, provider);
-    };
+  window.loginGoogle = async function () {
+  try {
+    await signInWithPopup(auth, provider);
+  } catch (error) {
+    alert("Lỗi đăng nhập: " + error.message);
+    console.error(error);
+  }
+};
 
     window.logoutGoogle = function () {
       signOut(auth);
