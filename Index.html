@@ -1,1 +1,542 @@
 
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+  <style>
+    :root {
+      --navy: #16233F;
+      --navy-soft: #223458;
+      --amber: #C68A2E;
+      --amber-light: #F3E1BE;
+      --paper: #F6F3EC;
+      --card: #FFFFFF;
+      --ink: #24304A;
+      --line: #E4DFD3;
+      --green: #2F7D5A;
+      --red: #B4442E;
+      --red-soft: #FBEAE5;
+      --radius: 16px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      width: 100%;
+      max-width: 100%;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      font-family: Arial, sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+    }
+
+    body > * {
+      max-width: 100vw !important;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0;
+    }
+
+    .header {
+      background: linear-gradient(155deg, var(--navy), var(--navy-soft));
+      color: white;
+      padding: 22px 16px;
+    }
+
+    .eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      color: var(--amber-light);
+      margin-bottom: 8px;
+    }
+
+    .header h2 {
+      margin: 0;
+      font-size: 21px;
+      line-height: 1.3;
+    }
+
+    .header p {
+      margin: 8px 0 0;
+      font-size: 13px;
+      line-height: 1.45;
+      color: #cbd5e1;
+    }
+
+    .box {
+      width: 100%;
+      background: var(--card);
+      padding: 18px 14px 110px;
+    }
+
+    .note {
+      display: flex;
+      gap: 8px;
+      background: var(--amber-light);
+      border: 1px solid #E7CD98;
+      color: #5B4110;
+      padding: 12px;
+      border-radius: 12px;
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin: 24px 0 14px;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--navy);
+    }
+
+    .badge {
+      width: 23px;
+      height: 23px;
+      border-radius: 7px;
+      background: var(--amber);
+      color: white;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      flex: none;
+    }
+
+    .grid,
+    .item-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      width: 100%;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      min-width: 0;
+    }
+
+    label {
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .req {
+      color: var(--red);
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      max-width: 100%;
+      min-height: 46px;
+      padding: 11px 12px;
+      border: 1.5px solid var(--line);
+      border-radius: 10px;
+      background: #FCFBF8;
+      color: var(--ink);
+      font-size: 16px;
+      outline: none;
+    }
+
+    textarea {
+      min-height: 80px;
+      resize: vertical;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: var(--amber);
+      box-shadow: 0 0 0 3px rgba(198,138,46,0.16);
+      background: white;
+    }
+
+    #items {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .item {
+      width: 100%;
+      background: #FCFBF8;
+      border: 1.5px solid var(--line);
+      border-radius: 14px;
+      padding: 16px 14px;
+      position: relative;
+    }
+
+    .item::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 12px;
+      bottom: 12px;
+      width: 3px;
+      background: var(--amber);
+      border-radius: 3px;
+    }
+
+    .item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .item-title {
+      font-weight: 800;
+      color: var(--navy);
+      font-size: 14px;
+    }
+
+    .num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--navy);
+      color: var(--amber-light);
+      font-size: 12px;
+      margin-right: 6px;
+    }
+
+    button {
+      min-height: 46px;
+      border: none;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .remove {
+      background: var(--red-soft);
+      color: var(--red);
+      padding: 8px 12px;
+      min-height: 36px;
+    }
+
+    .actions {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 999;
+      display: flex;
+      flex-direction: column-reverse;
+      gap: 8px;
+      padding: 10px 14px calc(10px + env(safe-area-inset-bottom));
+      background: var(--paper);
+      border-top: 1px solid var(--line);
+    }
+
+    .add,
+    .submit {
+      width: 100%;
+    }
+
+    .add {
+      background: white;
+      color: var(--navy);
+      border: 1.5px solid var(--navy);
+    }
+
+    .submit {
+      background: var(--green);
+      color: white;
+    }
+
+    @media screen and (min-width: 768px) {
+      .container {
+        margin: 36px auto 60px;
+        padding: 0 18px;
+      }
+
+      .header {
+        border-radius: var(--radius) var(--radius) 0 0;
+        padding: 34px 32px 30px;
+      }
+
+      .header h2 {
+        font-size: 26px;
+      }
+
+      .box {
+        border-radius: 0 0 var(--radius) var(--radius);
+        border: 1px solid var(--line);
+        border-top: none;
+        box-shadow: 0 20px 40px -18px rgba(22,35,63,0.25);
+        padding: 30px 32px 32px;
+      }
+
+      .grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px 20px;
+      }
+
+      .field.full {
+        grid-column: 1 / -1;
+      }
+
+      .item-grid {
+        grid-template-columns: 2fr 1.2fr 1.2fr 0.8fr;
+        gap: 12px;
+      }
+
+      .actions {
+        position: static;
+        flex-direction: row;
+        padding: 0;
+        margin-top: 26px;
+        border-top: none;
+        background: transparent;
+      }
+
+      .add {
+        width: auto;
+        padding: 0 20px;
+      }
+
+      .submit {
+        flex: 1;
+      }
+
+      input,
+      select,
+      textarea {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="eyebrow">PHIẾU CẤP PHÁT NỘI BỘ</div>
+      <h2>Đăng ký cấp phát đồng phục</h2>
+      <p>Dành cho CBNV đăng ký cấp phát đồng phục, áo thun và giày bảo hộ.</p>
+    </div>
+
+    <div class="box">
+      <div class="note">
+        <span>⚠️</span>
+        <span>Vui lòng nhập đầy đủ thông tin. Mỗi loại đồng phục cần cấp sẽ được ghi thành một dòng riêng trên hệ thống.</span>
+      </div>
+
+      <h3 class="section-title"><span class="badge">I</span>Thông tin nhân sự</h3>
+
+      <div class="grid">
+        <div class="field">
+          <label>Họ và tên <span class="req">*</span></label>
+          <input id="hoTen" placeholder="Nhập họ và tên">
+        </div>
+
+        <div class="field">
+          <label>Mã nhân viên <span class="req">*</span></label>
+          <input id="maNV" placeholder="Nhập mã nhân viên">
+        </div>
+
+        <div class="field">
+          <label>Dự án <span class="req">*</span></label>
+          <select id="duAn">
+            <option>Văn phòng</option>
+            <option>Bệnh viện Bình Dân</option>
+            <option>Bệnh viện Y học cổ truyền</option>
+            <option>Bệnh viện Ung Bướu</option>
+            <option>Bệnh viện Nhi Đồng 1</option>
+            <option>Bệnh viện Nhi Đồng Thành Phố</option>
+            <option>Bệnh viện Quân Y 175</option>
+            <option>Trường ĐHYK Phạm Ngọc Thạch</option>
+            <option>Bệnh viện Chợ Rẫy</option>
+            <option>Bệnh viện Trưng Vương</option>
+            <option>Bệnh viện ĐKKV Củ Chi</option>
+            <option>Khác</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label>Chức vụ</label>
+          <input id="chucVu" placeholder="Nhập chức vụ">
+        </div>
+
+        <div class="field">
+          <label>Lý do cấp phát <span class="req">*</span></label>
+          <select id="lyDo">
+            <option>Nhân sự mới</option>
+            <option>Cấp định kỳ</option>
+            <option>Cấp bổ sung</option>
+            <option>Thay thế do hư hỏng</option>
+            <option>Thay thế do mất</option>
+            <option>Đổi size</option>
+            <option>Khác</option>
+          </select>
+        </div>
+
+        <div class="field full">
+          <label>Ghi chú</label>
+          <textarea id="ghiChu" placeholder="Nhập ghi chú nếu có"></textarea>
+        </div>
+      </div>
+
+      <h3 class="section-title"><span class="badge">II</span>Danh sách đồng phục cần cấp</h3>
+
+      <div id="items"></div>
+
+      <div class="actions">
+        <button class="add" onclick="themDongPhuc()">+ Thêm đồng phục</button>
+        <button class="submit" onclick="guiDangKy()">GỬI ĐĂNG KÝ</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let stt = 0;
+
+    function themDongPhuc() {
+      stt++;
+
+      const div = document.createElement("div");
+      div.className = "item";
+
+      div.innerHTML = `
+        <div class="item-header">
+          <div class="item-title"><span class="num">${stt}</span>Đồng phục #${stt}</div>
+          <button class="remove" onclick="this.closest('.item').remove()">Xóa</button>
+        </div>
+
+        <div class="item-grid">
+          <div class="field">
+            <label>Loại đồng phục</label>
+            <select class="loai">
+              <option>Đồng phục bảo hộ</option>
+              <option>Áo thun xám</option>
+              <option>Áo thun trắng nam</option>
+              <option>Áo thun trắng nữ</option>
+              <option>Giày bảo hộ</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label>Công ty</label>
+            <select class="congTy">
+              <option>SICOM</option>
+              <option>AVA</option>
+              <option>Không áp dụng</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label>Size</label>
+            <select class="size">
+              <option>S</option>
+              <option>M</option>
+              <option>L</option>
+              <option>XL</option>
+              <option>2XL</option>
+              <option>3XL</option>
+              <option>4XL</option>
+              <option>39</option>
+              <option>40</option>
+              <option>41</option>
+              <option>42</option>
+              <option>43</option>
+              <option>44</option>
+              <option>45</option>
+              <option>46</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label>Số lượng</label>
+            <input class="soLuong" type="number" min="1" value="1">
+          </div>
+        </div>
+      `;
+
+      document.getElementById("items").appendChild(div);
+    }
+
+    function guiDangKy() {
+      const hoTen = document.getElementById("hoTen").value.trim();
+      const maNV = document.getElementById("maNV").value.trim();
+
+      if (!hoTen || !maNV) {
+        alert("Vui lòng nhập Họ tên và Mã nhân viên.");
+        return;
+      }
+
+      const items = [];
+
+      document.querySelectorAll(".item").forEach(row => {
+        items.push({
+          loai: row.querySelector(".loai").value,
+          congTy: row.querySelector(".congTy").value,
+          size: row.querySelector(".size").value,
+          soLuong: row.querySelector(".soLuong").value
+        });
+      });
+
+      if (items.length === 0) {
+        alert("Vui lòng thêm ít nhất 1 loại đồng phục.");
+        return;
+      }
+
+      const data = {
+        hoTen,
+        maNV,
+        duAn: document.getElementById("duAn").value,
+        chucVu: document.getElementById("chucVu").value,
+        lyDo: document.getElementById("lyDo").value,
+        ghiChu: document.getElementById("ghiChu").value,
+        items
+      };
+
+          const API_URL = "https://script.google.com/macros/s/AKfycbxY-qudhQWdbubMu4q9VxyddUa1cUeR8TPOmqz7eEtCXIOtGBQNet4vErOl91Z0qRmy/exec";
+
+      fetch(API_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "text/plain;charset=utf-8"
+        },
+        body: JSON.stringify(data)
+      })
+      .then(() => {
+        alert("Đã gửi đăng ký cấp phát đồng phục thành công.");
+        location.reload();
+      })
+      .catch(() => {
+        alert("Có lỗi khi gửi dữ liệu. Vui lòng thử lại.");
+      });
+    }
+
+    themDongPhuc();
+  </script>
+</body>
+</html>
