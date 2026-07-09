@@ -443,9 +443,10 @@
     import {
       getAuth,
       GoogleAuthProvider,
-      signInWithPopup,
-      onAuthStateChanged,
-      signOut
+     signInWithRedirect,
+getRedirectResult,
+onAuthStateChanged,
+signOut
     } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-auth.js";
 
     const firebaseConfig = {
@@ -463,24 +464,31 @@
     const app = initializeApp(firebaseConfig);
     const auth = getAuth(app);
     const provider = new GoogleAuthProvider();
-
+getRedirectResult(auth)
+  .then((result) => {
+    if (result && result.user) {
+      console.log("Redirect login OK:", result.user.email);
+    }
+  })
+  .catch((error) => {
+    console.error("REDIRECT ERROR:", error);
+    alert("Lỗi đăng nhập redirect: " + error.message);
+  });
     let currentUser = null;
     let stt = 0;
 
     console.log("Firebase initialized");
 
-    window.loginGoogle = async function () {
-      console.log("Bắt đầu đăng nhập Google");
+window.loginGoogle = async function () {
+  console.log("Bắt đầu đăng nhập Google Redirect");
 
-      try {
-        const result = await signInWithPopup(auth, provider);
-        console.log("Đăng nhập thành công:", result.user.email);
-      } catch (error) {
-        console.error("LOGIN ERROR:", error);
-        alert("Lỗi đăng nhập: " + error.message);
-      }
-    };
-
+  try {
+    await signInWithRedirect(auth, provider);
+  } catch (error) {
+    console.error("LOGIN ERROR:", error);
+    alert("Lỗi đăng nhập: " + error.message);
+  }
+};
     window.logoutGoogle = async function () {
       console.log("Đăng xuất");
       await signOut(auth);
