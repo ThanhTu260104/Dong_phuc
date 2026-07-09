@@ -7,18 +7,17 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --navy:#16213A; --navy-deep:#0E1728; --navy-soft:#233355;
-      --brass:#AD7F3E; --brass-light:#E9D9B4; --brass-dim:#C7A876;
-      --paper:#F6F1E6; --card:#FFFFFF;
-      --ink:#232E47; --ink-soft:#5C6884;
-      --line:#E4DCC7; --line-strong:#D7CBA9;
-      --forest:#2E6B52; --forest-soft:#E4F0EA;
-      --brick:#A5452F; --brick-soft:#F8E7DF;
-      --radius:18px;
+      --navy:#101B33; --navy-soft:#1B2C4F; --navy-deep:#0B1526;
+      --gold:#B8863B; --gold-light:#F1E3C6; --gold-dark:#8E6624;
+      --paper:#F6F3EB; --card:#FFFFFF; --ink:#1E2635; --ink-soft:#5B6474;
+      --line:#E6E0D2; --green:#2C6E4F; --green-soft:#E7F2EC;
+      --red:#A63B2A; --red-soft:#FAEAE6;
+      --radius-lg:18px; --radius-md:12px; --radius-sm:9px;
+      --shadow-card:0 24px 48px -24px rgba(16,27,51,0.28);
     }
 
     * { box-sizing:border-box; }
@@ -28,116 +27,85 @@
       margin:0;
       padding:0;
       overflow-x:hidden;
-      font-family:'Be Vietnam Pro', Arial, sans-serif;
-      background:
-        radial-gradient(1200px 500px at 15% -10%, rgba(173,127,62,0.10), transparent 60%),
-        var(--paper);
+      font-family:'Be Vietnam Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background:var(--paper);
       color:var(--ink);
       -webkit-font-smoothing:antialiased;
     }
 
     .container {
       width:100%;
-      max-width:920px;
+      max-width:900px;
       margin:0 auto;
       padding:0;
     }
 
-    /* ---------- Letterhead ---------- */
-
+    /* ---------- Header ---------- */
     .header {
-      position:relative;
-      background:linear-gradient(160deg,var(--navy-deep),var(--navy) 55%,var(--navy-soft));
+      background:linear-gradient(160deg, var(--navy) 0%, var(--navy-soft) 55%, var(--navy-deep) 100%);
       color:#fff;
       padding:30px 20px 26px;
+      position:relative;
       overflow:hidden;
     }
 
     .header::after {
       content:"";
       position:absolute;
-      inset:0;
-      background-image:
-        repeating-linear-gradient(115deg, rgba(233,217,180,0.05) 0 1px, transparent 1px 34px);
+      top:-40%;
+      right:-15%;
+      width:220px;
+      height:220px;
+      border-radius:50%;
+      background:radial-gradient(circle, rgba(184,134,59,0.22), transparent 70%);
       pointer-events:none;
     }
 
-    .letterhead-row {
-      display:flex;
-      align-items:flex-start;
-      gap:14px;
-      position:relative;
-      z-index:1;
-    }
-
     .seal {
-      flex:none;
-      width:46px;
-      height:46px;
-      border-radius:50%;
-      border:1.5px solid var(--brass-light);
-      display:flex;
+      position:relative;
+      display:inline-flex;
       align-items:center;
       justify-content:center;
-      font-family:'Fraunces', serif;
-      font-style:italic;
-      font-weight:600;
-      font-size:16px;
-      color:var(--brass-light);
-      background:rgba(255,255,255,0.03);
+      width:40px;
+      height:40px;
+      border:1.5px solid var(--gold);
+      border-radius:50%;
+      color:var(--gold-light);
+      font-weight:800;
+      font-size:14px;
+      letter-spacing:0.5px;
+      margin-bottom:14px;
     }
 
-    .letterhead-text { min-width:0; }
-
     .eyebrow {
-      font-size:11px;
+      font-size:11.5px;
       font-weight:700;
-      letter-spacing:2.2px;
-      color:var(--brass-light);
+      letter-spacing:2px;
+      color:var(--gold-light);
       margin-bottom:8px;
       text-transform:uppercase;
-      font-family:'IBM Plex Mono', monospace;
+      position:relative;
     }
 
     .header h2 {
       margin:0;
-      font-family:'Fraunces', serif;
-      font-weight:600;
-      font-size:24px;
+      font-size:23px;
+      font-weight:800;
       line-height:1.3;
       letter-spacing:-0.2px;
+      position:relative;
     }
 
     .header p {
       margin:10px 0 0;
       font-size:13.5px;
       line-height:1.6;
-      color:#C9D2E4;
+      color:#C7CEDC;
+      position:relative;
       max-width:52ch;
-      position:relative;
-      z-index:1;
     }
 
-    /* perforated tear line, evoking a paper requisition stub */
-    .perforation {
-      position:relative;
-      height:1px;
-      background:transparent;
-      border-top:1.5px dashed rgba(233,217,180,0.55);
-      margin-top:24px;
-    }
-    .perforation::before, .perforation::after {
-      content:"";
-      position:absolute;
-      top:-8px;
-      width:16px;
-      height:16px;
-      border-radius:50%;
-      background:var(--paper);
-    }
-    .perforation::before { left:-20px; }
-    .perforation::after { right:-20px; }
-
+    /* ---------- Body / Box ---------- */
     .box {
       width:100%;
       background:var(--card);
@@ -147,90 +115,73 @@
     .note {
       display:flex;
       gap:10px;
-      background:var(--brass-light);
-      border:1px solid #DEC48C;
-      color:#5B4110;
-      padding:13px 14px;
-      border-radius:12px;
-      font-size:13px;
-      line-height:1.55;
+      align-items:flex-start;
+      background:var(--gold-light);
+      border:1px solid #E4CD9C;
+      color:#5C4416;
+      padding:14px 15px;
+      border-radius:var(--radius-md);
+      font-size:13.5px;
+      line-height:1.6;
       margin-bottom:16px;
     }
 
-    /* ---------- Login card ---------- */
+    .note span:first-child { font-size:15px; line-height:1; }
 
     .login-card {
       background:var(--card);
       border:1.5px solid var(--line);
-      border-radius:var(--radius);
-      padding:22px 18px;
+      border-radius:var(--radius-lg);
+      padding:20px;
       margin-top:20px;
-      text-align:center;
-    }
-
-    .login-card p.hint {
-      font-size:12.5px;
-      color:var(--ink-soft);
-      margin:12px 0 0;
     }
 
     .login-user {
       display:flex;
       align-items:center;
       justify-content:space-between;
-      gap:10px;
       flex-wrap:wrap;
-      background:var(--forest-soft);
-      color:#1F5B3F;
-      border:1px solid #BEDDCC;
-      padding:12px 14px;
-      border-radius:12px;
+      gap:10px;
+      background:var(--green-soft);
+      color:#1B4E36;
+      border:1px solid #BFE0CE;
+      padding:13px 14px;
+      border-radius:var(--radius-md);
       margin-bottom:16px;
-      font-size:13px;
+      font-size:13.5px;
     }
 
-    .login-user b { font-family:'IBM Plex Mono', monospace; font-weight:600; }
-
-    /* ---------- Section headers ---------- */
+    .login-user b { color:#123A28; }
 
     .section-title {
       display:flex;
       align-items:center;
-      gap:11px;
-      margin:30px 0 16px;
-      font-family:'Fraunces', serif;
-      font-size:17px;
-      font-weight:600;
+      gap:10px;
+      margin:28px 0 16px;
+      font-size:15.5px;
+      font-weight:800;
       color:var(--navy);
-    }
-
-    .section-title::after {
-      content:"";
-      flex:1;
-      height:1px;
-      background:var(--line-strong);
+      letter-spacing:0.1px;
     }
 
     .badge {
-      width:26px;
-      height:26px;
-      border-radius:50%;
-      background:var(--navy);
-      color:var(--brass-light);
+      width:25px;
+      height:25px;
+      border-radius:7px;
+      background:linear-gradient(155deg, var(--gold), var(--gold-dark));
+      color:#fff;
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      font-family:'Fraunces', serif;
-      font-style:italic;
-      font-size:13px;
-      font-weight:600;
+      font-size:12.5px;
+      font-weight:700;
       flex:none;
     }
 
     .grid, .item-grid {
       display:grid;
       grid-template-columns:1fr;
-      gap:15px;
+      gap:16px;
       width:100%;
     }
 
@@ -242,66 +193,77 @@
     }
 
     label {
-      font-size:12.5px;
+      font-size:13px;
       font-weight:600;
       margin-bottom:7px;
-      color:var(--ink-soft);
-      letter-spacing:0.2px;
+      color:var(--navy);
+      letter-spacing:0.1px;
     }
 
-    .req { color:var(--brick); }
+    .req { color:var(--red); }
 
     input, select, textarea {
       width:100%;
-      min-height:46px;
-      padding:11px 12px;
+      min-height:47px;
+      padding:11px 13px;
       border:1.5px solid var(--line);
-      border-radius:10px;
-      background:#FCFAF4;
+      border-radius:var(--radius-sm);
+      background:#FCFBF7;
       color:var(--ink);
-      font-family:'Be Vietnam Pro', Arial, sans-serif;
-      font-size:15px;
+      font-family:inherit;
+      font-size:15.5px;
       outline:none;
       transition:border-color .15s ease, box-shadow .15s ease, background .15s ease;
+      -webkit-appearance:none;
+      appearance:none;
+    }
+
+    select {
+      background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='9' viewBox='0 0 14 9'><path d='M1 1l6 6 6-6' stroke='%235B6474' stroke-width='1.6' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+      background-repeat:no-repeat;
+      background-position:right 13px center;
+      padding-right:34px;
     }
 
     textarea {
       min-height:80px;
       resize:vertical;
+      line-height:1.5;
     }
 
     input:focus, select:focus, textarea:focus {
-      border-color:var(--brass);
-      box-shadow:0 0 0 3px rgba(173,127,62,0.16);
+      border-color:var(--gold);
+      box-shadow:0 0 0 3px rgba(184,134,59,0.16);
       background:#fff;
     }
 
-    select {
-      appearance:none;
-      -webkit-appearance:none;
-      background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><path fill='%23AD7F3E' d='M5.5 7.5l4.5 4.5 4.5-4.5z'/></svg>");
-      background-repeat:no-repeat;
-      background-position:right 12px center;
-      background-size:16px;
-      padding-right:34px;
-    }
+    input::placeholder, textarea::placeholder { color:#A6ACB8; }
 
-    /* ---------- Item ticket cards ---------- */
-
+    /* ---------- Items ---------- */
     #items {
       display:flex;
       flex-direction:column;
-      gap:14px;
+      gap:15px;
     }
 
     .item {
       width:100%;
-      background:#FCFAF4;
+      background:#FCFBF7;
       border:1.5px solid var(--line);
-      border-left:3px dashed var(--brass-dim);
-      border-radius:14px;
-      padding:16px 14px 16px 16px;
+      border-radius:var(--radius-lg);
+      padding:17px 15px 16px;
       position:relative;
+    }
+
+    .item::before {
+      content:"";
+      position:absolute;
+      left:0;
+      top:14px;
+      bottom:14px;
+      width:3px;
+      background:linear-gradient(var(--gold), var(--gold-dark));
+      border-radius:3px;
     }
 
     .item-header {
@@ -309,13 +271,13 @@
       justify-content:space-between;
       align-items:center;
       gap:10px;
-      margin-bottom:14px;
+      margin-bottom:15px;
     }
 
     .item-title {
       font-weight:700;
       color:var(--navy);
-      font-size:14px;
+      font-size:14.5px;
       display:flex;
       align-items:center;
     }
@@ -324,43 +286,41 @@
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      width:24px;
-      height:24px;
+      width:23px;
+      height:23px;
       border-radius:50%;
       background:var(--navy);
-      color:var(--brass-light);
-      font-family:'Fraunces', serif;
-      font-style:italic;
-      font-size:12.5px;
-      font-weight:600;
+      color:var(--gold-light);
+      font-size:12px;
+      font-weight:700;
       margin-right:8px;
+      flex:none;
     }
 
     button {
-      min-height:46px;
+      min-height:47px;
       border:none;
-      border-radius:10px;
-      font-size:14px;
+      border-radius:var(--radius-sm);
+      font-size:14.5px;
       font-weight:700;
-      font-family:'Be Vietnam Pro', Arial, sans-serif;
+      font-family:inherit;
       cursor:pointer;
-      transition:transform .1s ease, filter .15s ease;
-    }
-    button:active { transform:translateY(1px); }
-    button:focus-visible {
-      outline:2.5px solid var(--brass);
-      outline-offset:2px;
+      transition:filter .15s ease, transform .05s ease;
     }
 
+    button:active { transform:translateY(1px); }
+    button:disabled { opacity:0.6; cursor:not-allowed; }
+
     .remove {
-      background:var(--brick-soft);
-      color:var(--brick);
-      padding:8px 12px;
+      background:var(--red-soft);
+      color:var(--red);
+      padding:8px 13px;
       min-height:36px;
     }
 
-    /* ---------- Sticky action bar ---------- */
+    .remove:hover { filter:brightness(0.97); }
 
+    /* ---------- Actions ---------- */
     .actions {
       position:fixed;
       left:0;
@@ -369,8 +329,8 @@
       z-index:999;
       display:flex;
       flex-direction:column-reverse;
-      gap:8px;
-      padding:10px 14px calc(10px + env(safe-area-inset-bottom));
+      gap:9px;
+      padding:11px 14px calc(11px + env(safe-area-inset-bottom));
       background:var(--paper);
       border-top:1px solid var(--line);
     }
@@ -384,54 +344,57 @@
       color:var(--navy);
       border:1.5px solid var(--navy);
     }
-    .add:hover { background:var(--brass-light); border-color:var(--brass); }
+
+    .add:hover { background:var(--navy); color:#fff; }
 
     .submit, .login-btn {
-      background:linear-gradient(160deg, var(--forest), #235340);
+      background:linear-gradient(155deg, var(--green), #235B41);
       color:#fff;
       letter-spacing:0.4px;
     }
+
     .submit:hover, .login-btn:hover { filter:brightness(1.06); }
-    .submit:disabled { opacity:0.7; }
 
     .logout-btn {
-      background:var(--brick-soft);
-      color:var(--brick);
+      background:var(--red-soft);
+      color:var(--red);
+      padding:8px 14px;
       min-height:38px;
-      padding:0 14px;
+      width:auto;
+      flex:none;
     }
 
     @media screen and (min-width:768px) {
       .container {
-        margin:40px auto 60px;
+        margin:40px auto 64px;
         padding:0 18px;
       }
 
       .header {
-        border-radius:var(--radius) var(--radius) 0 0;
-        padding:38px 36px 30px;
+        border-radius:var(--radius-lg) var(--radius-lg) 0 0;
+        padding:38px 34px 32px;
       }
 
-      .header h2 { font-size:29px; }
+      .header h2 { font-size:28px; }
 
       .box {
-        border-radius:0 0 var(--radius) var(--radius);
+        border-radius:0 0 var(--radius-lg) var(--radius-lg);
         border:1px solid var(--line);
         border-top:none;
-        box-shadow:0 24px 48px -20px rgba(16,25,45,0.28);
-        padding:32px 36px 34px;
+        box-shadow:var(--shadow-card);
+        padding:32px 34px 34px;
       }
 
       .grid {
-        grid-template-columns:repeat(2,minmax(0,1fr));
-        gap:18px 22px;
+        grid-template-columns:repeat(2, minmax(0,1fr));
+        gap:19px 22px;
       }
 
       .field.full { grid-column:1 / -1; }
 
       .item-grid {
         grid-template-columns:2fr 1.2fr 1.2fr 0.8fr;
-        gap:12px;
+        gap:13px;
       }
 
       .actions {
@@ -446,10 +409,6 @@
       .add { width:auto; padding:0 22px; }
       .submit { flex:1; }
     }
-
-    @media (prefers-reduced-motion: reduce) {
-      * { transition:none !important; }
-    }
   </style>
 </head>
 
@@ -457,36 +416,25 @@
 
   <div id="loginBox" class="container">
     <div class="header">
-      <div class="letterhead-row">
-        <div class="seal">ĐP</div>
-        <div class="letterhead-text">
-          <div class="eyebrow">Phiếu cấp phát nội bộ</div>
-          <h2>Đăng nhập Google</h2>
-        </div>
-      </div>
+      <div class="seal">CB</div>
+      <div class="eyebrow">Phiếu cấp phát nội bộ</div>
+      <h2>Đăng nhập Google</h2>
       <p>Vui lòng đăng nhập Google trước khi đăng ký cấp phát đồng phục.</p>
-      <div class="perforation"></div>
     </div>
 
-    <div class="box">
+    <div class="box" style="padding-bottom:22px;">
       <div class="login-card">
         <button class="login-btn" onclick="loginGoogle()">Đăng nhập bằng Google</button>
-        <p class="hint">Hệ thống dùng tài khoản Google để xác thực người đăng ký.</p>
       </div>
     </div>
   </div>
 
   <div id="formBox" class="container" style="display:none;">
     <div class="header">
-      <div class="letterhead-row">
-        <div class="seal">ĐP</div>
-        <div class="letterhead-text">
-          <div class="eyebrow">Phiếu cấp phát nội bộ</div>
-          <h2>Đăng ký cấp phát đồng phục</h2>
-        </div>
-      </div>
+      <div class="seal">CB</div>
+      <div class="eyebrow">Phiếu cấp phát nội bộ</div>
+      <h2>Đăng ký cấp phát đồng phục</h2>
       <p>Dành cho CBNV đăng ký cấp phát đồng phục, áo thun và giày bảo hộ.</p>
-      <div class="perforation"></div>
     </div>
 
     <div class="box">
@@ -575,8 +523,7 @@
     import {
       getAuth,
       GoogleAuthProvider,
-      signInWithRedirect,
-      getRedirectResult,
+      signInWithPopup,
       onAuthStateChanged,
       signOut
     } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-auth.js";
@@ -593,56 +540,65 @@
 
     const API_URL = "https://script.google.com/macros/s/AKfycbzKQBWjOUI7divNikXzQAFQPc9vVKlQOFUmAvStFUusi5RHFQny9_WX0Hsset0HCaRZkg/exec";
 
-    const app = initializeApp(firebaseConfig);
-    const auth = getAuth(app);
-    const provider = new GoogleAuthProvider();
-
-    getRedirectResult(auth)
-      .then((result) => {
-        if (result && result.user) {
-          console.log("Redirect login OK:", result.user.email);
-        }
-      })
-      .catch((error) => {
-        console.error("REDIRECT ERROR:", error);
-        alert("Lỗi đăng nhập redirect: " + error.message);
-      });
-
+    let auth = null;
     let currentUser = null;
     let stt = 0;
 
-    console.log("Firebase initialized");
+    function $(id) {
+      return document.getElementById(id);
+    }
 
-    window.loginGoogle = async function () {
-      console.log("Bắt đầu đăng nhập Google Redirect");
-      try {
-        await signInWithRedirect(auth, provider);
-      } catch (error) {
-        console.error("LOGIN ERROR:", error);
-        alert("Lỗi đăng nhập: " + error.message);
-      }
-    };
+    function showLogin() {
+      const loginBox = $("loginBox");
+      const formBox = $("formBox");
+      if (loginBox) loginBox.style.display = "block";
+      if (formBox) formBox.style.display = "none";
+    }
 
-    window.logoutGoogle = async function () {
-      console.log("Đăng xuất");
-      await signOut(auth);
-    };
+    function showForm(user) {
+      const loginBox = $("loginBox");
+      const formBox = $("formBox");
+      const userEmailEl = $("userEmail");
+      if (loginBox) loginBox.style.display = "none";
+      if (formBox) formBox.style.display = "block";
+      if (userEmailEl) userEmailEl.innerText = (user && user.email) ? user.email : "";
+    }
 
-    onAuthStateChanged(auth, function(user) {
-      console.log("AUTH STATE:", user);
-      currentUser = user;
+    try {
+      const app = initializeApp(firebaseConfig);
+      auth = getAuth(app);
+      const provider = new GoogleAuthProvider();
 
-      if (user) {
-        console.log("User email:", user.email);
-        document.getElementById("loginBox").style.display = "none";
-        document.getElementById("formBox").style.display = "block";
-        document.getElementById("userEmail").innerText = user.email;
-      } else {
-        console.log("Chưa đăng nhập");
-        document.getElementById("loginBox").style.display = "block";
-        document.getElementById("formBox").style.display = "none";
-      }
-    });
+      window.loginGoogle = async function () {
+        try {
+          const result = await signInWithPopup(auth, provider);
+          console.log("Đăng nhập thành công:", result.user.email);
+        } catch (error) {
+          console.error("LOGIN ERROR:", error);
+          alert("Lỗi đăng nhập: " + (error && error.message ? error.message : "Không xác định."));
+        }
+      };
+
+      window.logoutGoogle = async function () {
+        try {
+          await signOut(auth);
+        } catch (error) {
+          console.error("LOGOUT ERROR:", error);
+        }
+      };
+
+      onAuthStateChanged(auth, function (user) {
+        currentUser = user;
+        if (user) {
+          showForm(user);
+        } else {
+          showLogin();
+        }
+      });
+    } catch (error) {
+      console.error("FIREBASE INIT ERROR:", error);
+      alert("Không thể khởi tạo đăng nhập Google. Vui lòng tải lại trang.");
+    }
 
     window.themDongPhuc = function () {
       stt++;
@@ -653,7 +609,7 @@
       div.innerHTML = `
         <div class="item-header">
           <div class="item-title"><span class="num">${stt}</span>Đồng phục #${stt}</div>
-          <button class="remove" onclick="this.closest('.item').remove()">Xóa</button>
+          <button type="button" class="remove" onclick="this.closest('.item').remove()">Xóa</button>
         </div>
 
         <div class="item-grid">
@@ -705,7 +661,8 @@
         </div>
       `;
 
-      document.getElementById("items").appendChild(div);
+      const itemsEl = $("items");
+      if (itemsEl) itemsEl.appendChild(div);
     };
 
     window.guiDangKy = function () {
@@ -714,8 +671,10 @@
         return;
       }
 
-      const hoTen = document.getElementById("hoTen").value.trim();
-      const maNV = document.getElementById("maNV").value.trim();
+      const hoTenEl = $("hoTen");
+      const maNVEl = $("maNV");
+      const hoTen = hoTenEl ? hoTenEl.value.trim() : "";
+      const maNV = maNVEl ? maNVEl.value.trim() : "";
 
       if (!hoTen || !maNV) {
         alert("Vui lòng nhập Họ tên và Mã nhân viên.");
@@ -724,12 +683,17 @@
 
       const items = [];
 
-      document.querySelectorAll(".item").forEach(row => {
+      document.querySelectorAll(".item").forEach(function (row) {
+        const loaiEl = row.querySelector(".loai");
+        const congTyEl = row.querySelector(".congTy");
+        const sizeEl = row.querySelector(".size");
+        const soLuongEl = row.querySelector(".soLuong");
+
         items.push({
-          loai: row.querySelector(".loai").value,
-          congTy: row.querySelector(".congTy").value,
-          size: row.querySelector(".size").value,
-          soLuong: row.querySelector(".soLuong").value
+          loai: loaiEl ? loaiEl.value : "",
+          congTy: congTyEl ? congTyEl.value : "",
+          size: sizeEl ? sizeEl.value : "",
+          soLuong: soLuongEl ? soLuongEl.value : ""
         });
       });
 
@@ -738,22 +702,27 @@
         return;
       }
 
+      const duAnEl = $("duAn");
+      const chucVuEl = $("chucVu");
+      const lyDoEl = $("lyDo");
+      const ghiChuEl = $("ghiChu");
+
       const data = {
         email: currentUser.email,
-        hoTen,
-        maNV,
-        duAn: document.getElementById("duAn").value,
-        chucVu: document.getElementById("chucVu").value,
-        lyDo: document.getElementById("lyDo").value,
-        ghiChu: document.getElementById("ghiChu").value,
-        items
+        hoTen: hoTen,
+        maNV: maNV,
+        duAn: duAnEl ? duAnEl.value : "",
+        chucVu: chucVuEl ? chucVuEl.value : "",
+        lyDo: lyDoEl ? lyDoEl.value : "",
+        ghiChu: ghiChuEl ? ghiChuEl.value : "",
+        items: items
       };
 
-      console.log("DATA GỬI VỀ SHEET:", data);
-
-      const btn = document.getElementById("submitBtn");
-      btn.disabled = true;
-      btn.innerText = "ĐANG GỬI...";
+      const btn = $("submitBtn");
+      if (btn) {
+        btn.disabled = true;
+        btn.innerText = "ĐANG GỬI...";
+      }
 
       fetch(API_URL, {
         method: "POST",
@@ -763,16 +732,17 @@
         },
         body: JSON.stringify(data)
       })
-      .then(function(response) {
-        console.log("FETCH RESPONSE:", response);
+      .then(function () {
         alert("Đã gửi đăng ký cấp phát đồng phục thành công.");
         location.reload();
       })
-      .catch(function(error) {
+      .catch(function (error) {
         console.error("FETCH ERROR:", error);
         alert("Có lỗi khi gửi dữ liệu. Vui lòng thử lại.");
-        btn.disabled = false;
-        btn.innerText = "GỬI ĐĂNG KÝ";
+        if (btn) {
+          btn.disabled = false;
+          btn.innerText = "GỬI ĐĂNG KÝ";
+        }
       });
     };
 
