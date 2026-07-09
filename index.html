@@ -1,371 +1,200 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <title>Đăng ký cấp phát đồng phục</title>
 
   <style>
     :root {
-      --navy: #16233F;
-      --navy-soft: #223458;
-      --amber: #C68A2E;
-      --amber-light: #F3E1BE;
-      --paper: #F6F3EC;
-      --card: #FFFFFF;
-      --ink: #24304A;
-      --line: #E4DFD3;
-      --green: #2F7D5A;
-      --red: #B4442E;
-      --red-soft: #FBEAE5;
-      --radius: 16px;
+      --navy:#16233F; --navy-soft:#223458; --amber:#C68A2E;
+      --amber-light:#F3E1BE; --paper:#F6F3EC; --card:#FFFFFF;
+      --ink:#24304A; --line:#E4DFD3; --green:#2F7D5A;
+      --red:#B4442E; --red-soft:#FBEAE5; --radius:16px;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing:border-box; }
 
-    html,
-    body {
-      width: 100%;
-      max-width: 100%;
-      margin: 0;
-      padding: 0;
-      overflow-x: hidden;
-      font-family: 'Be Vietnam Pro', Arial, sans-serif;
-      background: var(--paper);
-      color: var(--ink);
-      -webkit-text-size-adjust: 100%;
-      text-size-adjust: 100%;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-
-    body > * {
-      max-width: 100vw !important;
+    html, body {
+      width:100%; margin:0; padding:0; overflow-x:hidden;
+      font-family:Arial, sans-serif; background:var(--paper); color:var(--ink);
     }
 
     .container {
-      width: 100%;
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 0;
+      width:100%; max-width:900px; margin:0 auto; padding:0;
     }
 
     .header {
-      background: linear-gradient(155deg, var(--navy), var(--navy-soft));
-      color: white;
-      padding: 24px 18px;
+      background:linear-gradient(155deg,var(--navy),var(--navy-soft));
+      color:white; padding:24px 18px;
     }
 
     .eyebrow {
-      font-size: 11.5px;
-      font-weight: 700;
-      letter-spacing: 1.6px;
-      color: var(--amber-light);
-      margin-bottom: 9px;
-      text-transform: uppercase;
+      font-size:11.5px; font-weight:700; letter-spacing:1.6px;
+      color:var(--amber-light); margin-bottom:9px; text-transform:uppercase;
     }
 
-    .header h2 {
-      margin: 0;
-      font-size: 22px;
-      font-weight: 800;
-      line-height: 1.32;
-      letter-spacing: -0.2px;
-    }
+    .header h2 { margin:0; font-size:22px; font-weight:800; line-height:1.32; }
+    .header p { margin:9px 0 0; font-size:13.5px; line-height:1.55; color:#cbd5e1; }
 
-    .header p {
-      margin: 9px 0 0;
-      font-size: 13.5px;
-      line-height: 1.55;
-      color: #cbd5e1;
-      font-weight: 400;
-    }
-
-    .box {
-      width: 100%;
-      background: var(--card);
-      padding: 20px 16px 118px;
-    }
+    .box { width:100%; background:var(--card); padding:20px 16px 118px; }
 
     .note {
-      display: flex;
-      gap: 9px;
-      background: var(--amber-light);
-      border: 1px solid #E7CD98;
-      color: #5B4110;
-      padding: 13px 14px;
-      border-radius: 12px;
-      font-size: 13.5px;
-      line-height: 1.55;
-      font-weight: 500;
+      display:flex; gap:9px; background:var(--amber-light);
+      border:1px solid #E7CD98; color:#5B4110; padding:13px 14px;
+      border-radius:12px; font-size:13.5px; line-height:1.55; margin-bottom:14px;
+    }
+
+    .login-card {
+      background:white; border:1.5px solid var(--line); border-radius:14px;
+      padding:18px; margin-top:18px;
+    }
+
+    .login-user {
+      background:#eef6f1; color:#1f5b3f; border:1px solid #b8dec9;
+      padding:12px; border-radius:12px; margin-bottom:14px; font-size:13.5px;
     }
 
     .section-title {
-      display: flex;
-      align-items: center;
-      gap: 9px;
-      margin: 26px 0 15px;
-      font-size: 15.5px;
-      font-weight: 800;
-      color: var(--navy);
-      letter-spacing: -0.1px;
+      display:flex; align-items:center; gap:9px; margin:26px 0 15px;
+      font-size:15.5px; font-weight:800; color:var(--navy);
     }
 
     .badge {
-      width: 24px;
-      height: 24px;
-      border-radius: 7px;
-      background: var(--amber);
-      color: white;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 12.5px;
-      font-weight: 700;
-      flex: none;
+      width:24px; height:24px; border-radius:7px; background:var(--amber);
+      color:white; display:inline-flex; align-items:center; justify-content:center;
+      font-size:12.5px; font-weight:700; flex:none;
     }
 
-    .grid,
-    .item-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 15px;
-      width: 100%;
+    .grid, .item-grid {
+      display:grid; grid-template-columns:1fr; gap:15px; width:100%;
     }
 
-    .field {
-      display: flex;
-      flex-direction: column;
-      width: 100%;
-      min-width: 0;
-    }
+    .field { display:flex; flex-direction:column; width:100%; min-width:0; }
 
     label {
-      font-size: 13.5px;
-      font-weight: 700;
-      margin-bottom: 7px;
-      color: var(--navy);
-      letter-spacing: -0.1px;
+      font-size:13.5px; font-weight:700; margin-bottom:7px;
+      color:var(--navy);
     }
 
-    .req {
-      color: var(--red);
+    .req { color:var(--red); }
+
+    input, select, textarea {
+      width:100%; min-height:46px; padding:11px 12px;
+      border:1.5px solid var(--line); border-radius:10px;
+      background:#FCFBF8; color:var(--ink); font-size:15.5px; outline:none;
     }
 
-    input,
-    select,
-    textarea {
-      width: 100%;
-      max-width: 100%;
-      min-height: 46px;
-      padding: 11px 12px;
-      border: 1.5px solid var(--line);
-      border-radius: 10px;
-      background: #FCFBF8;
-      color: var(--ink);
-      font-family: 'Be Vietnam Pro', Arial, sans-serif;
-      font-size: 15.5px;
-      font-weight: 500;
-      outline: none;
+    textarea { min-height:80px; resize:vertical; }
+
+    input:focus, select:focus, textarea:focus {
+      border-color:var(--amber);
+      box-shadow:0 0 0 3px rgba(198,138,46,0.16);
+      background:white;
     }
 
-    textarea {
-      min-height: 80px;
-      resize: vertical;
-      font-weight: 400;
-    }
-
-    input::placeholder,
-    textarea::placeholder {
-      font-weight: 400;
-      color: #9AA3B5;
-    }
-
-    input:focus,
-    select:focus,
-    textarea:focus {
-      border-color: var(--amber);
-      box-shadow: 0 0 0 3px rgba(198,138,46,0.16);
-      background: white;
-    }
-
-    #items {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
+    #items { display:flex; flex-direction:column; gap:14px; }
 
     .item {
-      width: 100%;
-      background: #FCFBF8;
-      border: 1.5px solid var(--line);
-      border-radius: 14px;
-      padding: 16px 14px;
-      position: relative;
+      width:100%; background:#FCFBF8; border:1.5px solid var(--line);
+      border-radius:14px; padding:16px 14px; position:relative;
     }
 
     .item::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 12px;
-      bottom: 12px;
-      width: 3px;
-      background: var(--amber);
-      border-radius: 3px;
+      content:""; position:absolute; left:0; top:12px; bottom:12px;
+      width:3px; background:var(--amber); border-radius:3px;
     }
 
     .item-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 14px;
+      display:flex; justify-content:space-between; align-items:center;
+      gap:10px; margin-bottom:14px;
     }
 
     .item-title {
-      font-weight: 800;
-      color: var(--navy);
-      font-size: 14.5px;
-      display: flex;
-      align-items: center;
-      letter-spacing: -0.1px;
+      font-weight:800; color:var(--navy); font-size:14.5px; display:flex; align-items:center;
     }
 
     .num {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 22px;
-      height: 22px;
-      border-radius: 50%;
-      background: var(--navy);
-      color: var(--amber-light);
-      font-size: 12px;
-      font-weight: 700;
-      margin-right: 7px;
+      display:inline-flex; align-items:center; justify-content:center;
+      width:22px; height:22px; border-radius:50%; background:var(--navy);
+      color:var(--amber-light); font-size:12px; font-weight:700; margin-right:7px;
     }
 
     button {
-      min-height: 46px;
-      border: none;
-      border-radius: 10px;
-      font-size: 14.5px;
-      font-weight: 700;
-      font-family: 'Be Vietnam Pro', Arial, sans-serif;
-      cursor: pointer;
-      letter-spacing: 0.1px;
+      min-height:46px; border:none; border-radius:10px; font-size:14.5px;
+      font-weight:700; cursor:pointer;
     }
 
     .remove {
-      background: var(--red-soft);
-      color: var(--red);
-      padding: 8px 12px;
-      min-height: 36px;
+      background:var(--red-soft); color:var(--red);
+      padding:8px 12px; min-height:36px;
     }
 
     .actions {
-      position: fixed;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      z-index: 999;
-      display: flex;
-      flex-direction: column-reverse;
-      gap: 8px;
-      padding: 10px 14px calc(10px + env(safe-area-inset-bottom));
-      background: var(--paper);
-      border-top: 1px solid var(--line);
+      position:fixed; left:0; right:0; bottom:0; z-index:999;
+      display:flex; flex-direction:column-reverse; gap:8px;
+      padding:10px 14px calc(10px + env(safe-area-inset-bottom));
+      background:var(--paper); border-top:1px solid var(--line);
     }
 
-    .add,
-    .submit {
-      width: 100%;
-    }
+    .add, .submit, .login-btn, .logout-btn { width:100%; }
 
     .add {
-      background: white;
-      color: var(--navy);
-      border: 1.5px solid var(--navy);
+      background:white; color:var(--navy); border:1.5px solid var(--navy);
     }
 
-    .submit {
-      background: var(--green);
-      color: white;
-      letter-spacing: 0.4px;
+    .submit, .login-btn {
+      background:var(--green); color:white; letter-spacing:0.4px;
     }
 
-    @media screen and (min-width: 768px) {
-      .container {
-        margin: 36px auto 60px;
-        padding: 0 18px;
-      }
+    .logout-btn {
+      background:var(--red-soft); color:var(--red); margin-top:8px;
+    }
 
-      .header {
-        border-radius: var(--radius) var(--radius) 0 0;
-        padding: 34px 32px 30px;
-      }
-
-      .header h2 {
-        font-size: 27px;
-      }
+    @media screen and (min-width:768px) {
+      .container { margin:36px auto 60px; padding:0 18px; }
+      .header { border-radius:var(--radius) var(--radius) 0 0; padding:34px 32px 30px; }
+      .header h2 { font-size:27px; }
 
       .box {
-        border-radius: 0 0 var(--radius) var(--radius);
-        border: 1px solid var(--line);
-        border-top: none;
-        box-shadow: 0 20px 40px -18px rgba(22,35,63,0.25);
-        padding: 30px 32px 32px;
+        border-radius:0 0 var(--radius) var(--radius);
+        border:1px solid var(--line); border-top:none;
+        box-shadow:0 20px 40px -18px rgba(22,35,63,0.25);
+        padding:30px 32px 32px;
       }
 
-      .grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 18px 20px;
-      }
-
-      .field.full {
-        grid-column: 1 / -1;
-      }
-
-      .item-grid {
-        grid-template-columns: 2fr 1.2fr 1.2fr 0.8fr;
-        gap: 12px;
-      }
+      .grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px 20px; }
+      .field.full { grid-column:1 / -1; }
+      .item-grid { grid-template-columns:2fr 1.2fr 1.2fr 0.8fr; gap:12px; }
 
       .actions {
-        position: static;
-        flex-direction: row;
-        padding: 0;
-        margin-top: 26px;
-        border-top: none;
-        background: transparent;
+        position:static; flex-direction:row; padding:0; margin-top:26px;
+        border-top:none; background:transparent;
       }
 
-      .add {
-        width: auto;
-        padding: 0 20px;
-      }
-
-      .submit {
-        flex: 1;
-      }
-
-      input,
-      select,
-      textarea {
-        font-size: 14.5px;
-      }
+      .add { width:auto; padding:0 20px; }
+      .submit { flex:1; }
     }
   </style>
 </head>
 
 <body>
-  <div class="container">
+
+  <div id="loginBox" class="container">
+    <div class="header">
+      <div class="eyebrow">PHIẾU CẤP PHÁT NỘI BỘ</div>
+      <h2>Đăng nhập Google</h2>
+      <p>Vui lòng đăng nhập Google trước khi đăng ký cấp phát đồng phục.</p>
+    </div>
+
+    <div class="box">
+      <div class="login-card">
+        <button class="login-btn" onclick="loginGoogle()">Đăng nhập bằng Google</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="formBox" class="container" style="display:none;">
     <div class="header">
       <div class="eyebrow">PHIẾU CẤP PHÁT NỘI BỘ</div>
       <h2>Đăng ký cấp phát đồng phục</h2>
@@ -373,6 +202,11 @@
     </div>
 
     <div class="box">
+      <div class="login-user">
+        👤 Đang đăng nhập: <b id="userEmail"></b>
+        <button class="logout-btn" onclick="logoutGoogle()">Đăng xuất</button>
+      </div>
+
       <div class="note">
         <span>⚠️</span>
         <span>Vui lòng nhập đầy đủ thông tin. Mỗi loại đồng phục cần cấp sẽ được ghi thành một dòng riêng trên hệ thống.</span>
@@ -443,15 +277,67 @@
 
       <div class="actions">
         <button class="add" onclick="themDongPhuc()">+ Thêm đồng phục</button>
-        <button class="submit" onclick="guiDangKy()">GỬI ĐĂNG KÝ</button>
+        <button class="submit" id="submitBtn" onclick="guiDangKy()">GỬI ĐĂNG KÝ</button>
       </div>
     </div>
   </div>
 
-  <script>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
+    import {
+      getAuth,
+      GoogleAuthProvider,
+      signInWithRedirect,
+      getRedirectResult,
+      onAuthStateChanged,
+      signOut
+    } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyCA6nY2lkj75Tw9b6FSKXA6lXeZpO1N5KM",
+      authDomain: "dongphuc-98b67.firebaseapp.com",
+      projectId: "dongphuc-98b67",
+      storageBucket: "dongphuc-98b67.firebasestorage.app",
+      messagingSenderId: "56275467755",
+      appId: "1:56275467755:web:1afcfb7716577d73c5edae",
+      measurementId: "G-EP16Z0L9L5"
+    };
+
+    const API_URL = "https://script.google.com/macros/s/AKfycbzKQBWjOUI7divNikXzQAFQPc9vVKlQOFUmAvStFUusi5RHFQny9_WX0Hsset0HCaRZkg/exec";
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const provider = new GoogleAuthProvider();
+
+    let currentUser = null;
     let stt = 0;
 
-    function themDongPhuc() {
+    window.loginGoogle = function () {
+      signInWithRedirect(auth, provider);
+    };
+
+    window.logoutGoogle = function () {
+      signOut(auth);
+    };
+
+    getRedirectResult(auth).catch(function(error) {
+      alert("Lỗi đăng nhập: " + error.message);
+    });
+
+    onAuthStateChanged(auth, function(user) {
+      currentUser = user;
+
+      if (user) {
+        document.getElementById("loginBox").style.display = "none";
+        document.getElementById("formBox").style.display = "block";
+        document.getElementById("userEmail").innerText = user.email;
+      } else {
+        document.getElementById("loginBox").style.display = "block";
+        document.getElementById("formBox").style.display = "none";
+      }
+    });
+
+    window.themDongPhuc = function () {
       stt++;
 
       const div = document.createElement("div");
@@ -513,9 +399,14 @@
       `;
 
       document.getElementById("items").appendChild(div);
-    }
+    };
 
-    function guiDangKy() {
+    window.guiDangKy = function () {
+      if (!currentUser) {
+        alert("Vui lòng đăng nhập Google trước khi gửi.");
+        return;
+      }
+
       const hoTen = document.getElementById("hoTen").value.trim();
       const maNV = document.getElementById("maNV").value.trim();
 
@@ -541,6 +432,7 @@
       }
 
       const data = {
+        email: currentUser.email,
         hoTen,
         maNV,
         duAn: document.getElementById("duAn").value,
@@ -550,7 +442,9 @@
         items
       };
 
-          const API_URL = "https://script.google.com/macros/s/AKfycbzKQBWjOUI7divNikXzQAFQPc9vVKlQOFUmAvStFUusi5RHFQny9_WX0Hsset0HCaRZkg/exec";
+      const btn = document.getElementById("submitBtn");
+      btn.disabled = true;
+      btn.innerText = "ĐANG GỬI...";
 
       fetch(API_URL, {
         method: "POST",
@@ -566,10 +460,12 @@
       })
       .catch(() => {
         alert("Có lỗi khi gửi dữ liệu. Vui lòng thử lại.");
+        btn.disabled = false;
+        btn.innerText = "GỬI ĐĂNG KÝ";
       });
-    }
+    };
 
-    themDongPhuc();
+    window.themDongPhuc();
   </script>
 </body>
 </html>
