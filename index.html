@@ -16,76 +16,151 @@
     * { box-sizing:border-box; }
 
     html, body {
-      width:100%; margin:0; padding:0; overflow-x:hidden;
-      font-family:Arial, sans-serif; background:var(--paper); color:var(--ink);
+      width:100%;
+      margin:0;
+      padding:0;
+      overflow-x:hidden;
+      font-family:Arial, sans-serif;
+      background:var(--paper);
+      color:var(--ink);
     }
 
     .container {
-      width:100%; max-width:900px; margin:0 auto; padding:0;
+      width:100%;
+      max-width:900px;
+      margin:0 auto;
+      padding:0;
     }
 
     .header {
       background:linear-gradient(155deg,var(--navy),var(--navy-soft));
-      color:white; padding:24px 18px;
+      color:white;
+      padding:24px 18px;
     }
 
     .eyebrow {
-      font-size:11.5px; font-weight:700; letter-spacing:1.6px;
-      color:var(--amber-light); margin-bottom:9px; text-transform:uppercase;
+      font-size:11.5px;
+      font-weight:700;
+      letter-spacing:1.6px;
+      color:var(--amber-light);
+      margin-bottom:9px;
+      text-transform:uppercase;
     }
 
-    .header h2 { margin:0; font-size:22px; font-weight:800; line-height:1.32; }
-    .header p { margin:9px 0 0; font-size:13.5px; line-height:1.55; color:#cbd5e1; }
+    .header h2 {
+      margin:0;
+      font-size:22px;
+      font-weight:800;
+      line-height:1.32;
+    }
 
-    .box { width:100%; background:var(--card); padding:20px 16px 118px; }
+    .header p {
+      margin:9px 0 0;
+      font-size:13.5px;
+      line-height:1.55;
+      color:#cbd5e1;
+    }
+
+    .box {
+      width:100%;
+      background:var(--card);
+      padding:20px 16px 118px;
+    }
 
     .note {
-      display:flex; gap:9px; background:var(--amber-light);
-      border:1px solid #E7CD98; color:#5B4110; padding:13px 14px;
-      border-radius:12px; font-size:13.5px; line-height:1.55; margin-bottom:14px;
+      display:flex;
+      gap:9px;
+      background:var(--amber-light);
+      border:1px solid #E7CD98;
+      color:#5B4110;
+      padding:13px 14px;
+      border-radius:12px;
+      font-size:13.5px;
+      line-height:1.55;
+      margin-bottom:14px;
     }
 
     .login-card {
-      background:white; border:1.5px solid var(--line); border-radius:14px;
-      padding:18px; margin-top:18px;
+      background:white;
+      border:1.5px solid var(--line);
+      border-radius:14px;
+      padding:18px;
+      margin-top:18px;
     }
 
     .login-user {
-      background:#eef6f1; color:#1f5b3f; border:1px solid #b8dec9;
-      padding:12px; border-radius:12px; margin-bottom:14px; font-size:13.5px;
+      background:#eef6f1;
+      color:#1f5b3f;
+      border:1px solid #b8dec9;
+      padding:12px;
+      border-radius:12px;
+      margin-bottom:14px;
+      font-size:13.5px;
     }
 
     .section-title {
-      display:flex; align-items:center; gap:9px; margin:26px 0 15px;
-      font-size:15.5px; font-weight:800; color:var(--navy);
+      display:flex;
+      align-items:center;
+      gap:9px;
+      margin:26px 0 15px;
+      font-size:15.5px;
+      font-weight:800;
+      color:var(--navy);
     }
 
     .badge {
-      width:24px; height:24px; border-radius:7px; background:var(--amber);
-      color:white; display:inline-flex; align-items:center; justify-content:center;
-      font-size:12.5px; font-weight:700; flex:none;
+      width:24px;
+      height:24px;
+      border-radius:7px;
+      background:var(--amber);
+      color:white;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      font-size:12.5px;
+      font-weight:700;
+      flex:none;
     }
 
     .grid, .item-grid {
-      display:grid; grid-template-columns:1fr; gap:15px; width:100%;
+      display:grid;
+      grid-template-columns:1fr;
+      gap:15px;
+      width:100%;
     }
 
-    .field { display:flex; flex-direction:column; width:100%; min-width:0; }
+    .field {
+      display:flex;
+      flex-direction:column;
+      width:100%;
+      min-width:0;
+    }
 
     label {
-      font-size:13.5px; font-weight:700; margin-bottom:7px;
+      font-size:13.5px;
+      font-weight:700;
+      margin-bottom:7px;
       color:var(--navy);
     }
 
     .req { color:var(--red); }
 
     input, select, textarea {
-      width:100%; min-height:46px; padding:11px 12px;
-      border:1.5px solid var(--line); border-radius:10px;
-      background:#FCFBF8; color:var(--ink); font-size:15.5px; outline:none;
+      width:100%;
+      min-height:46px;
+      padding:11px 12px;
+      border:1.5px solid var(--line);
+      border-radius:10px;
+      background:#FCFBF8;
+      color:var(--ink);
+      font-size:15.5px;
+      outline:none;
     }
 
-    textarea { min-height:80px; resize:vertical; }
+    textarea {
+      min-height:80px;
+      resize:vertical;
+    }
 
     input:focus, select:focus, textarea:focus {
       border-color:var(--amber);
@@ -93,87 +168,168 @@
       background:white;
     }
 
-    #items { display:flex; flex-direction:column; gap:14px; }
+    #items {
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+    }
 
     .item {
-      width:100%; background:#FCFBF8; border:1.5px solid var(--line);
-      border-radius:14px; padding:16px 14px; position:relative;
+      width:100%;
+      background:#FCFBF8;
+      border:1.5px solid var(--line);
+      border-radius:14px;
+      padding:16px 14px;
+      position:relative;
     }
 
     .item::before {
-      content:""; position:absolute; left:0; top:12px; bottom:12px;
-      width:3px; background:var(--amber); border-radius:3px;
+      content:"";
+      position:absolute;
+      left:0;
+      top:12px;
+      bottom:12px;
+      width:3px;
+      background:var(--amber);
+      border-radius:3px;
     }
 
     .item-header {
-      display:flex; justify-content:space-between; align-items:center;
-      gap:10px; margin-bottom:14px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:10px;
+      margin-bottom:14px;
     }
 
     .item-title {
-      font-weight:800; color:var(--navy); font-size:14.5px; display:flex; align-items:center;
+      font-weight:800;
+      color:var(--navy);
+      font-size:14.5px;
+      display:flex;
+      align-items:center;
     }
 
     .num {
-      display:inline-flex; align-items:center; justify-content:center;
-      width:22px; height:22px; border-radius:50%; background:var(--navy);
-      color:var(--amber-light); font-size:12px; font-weight:700; margin-right:7px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:22px;
+      height:22px;
+      border-radius:50%;
+      background:var(--navy);
+      color:var(--amber-light);
+      font-size:12px;
+      font-weight:700;
+      margin-right:7px;
     }
 
     button {
-      min-height:46px; border:none; border-radius:10px; font-size:14.5px;
-      font-weight:700; cursor:pointer;
+      min-height:46px;
+      border:none;
+      border-radius:10px;
+      font-size:14.5px;
+      font-weight:700;
+      cursor:pointer;
     }
 
     .remove {
-      background:var(--red-soft); color:var(--red);
-      padding:8px 12px; min-height:36px;
+      background:var(--red-soft);
+      color:var(--red);
+      padding:8px 12px;
+      min-height:36px;
     }
 
     .actions {
-      position:fixed; left:0; right:0; bottom:0; z-index:999;
-      display:flex; flex-direction:column-reverse; gap:8px;
+      position:fixed;
+      left:0;
+      right:0;
+      bottom:0;
+      z-index:999;
+      display:flex;
+      flex-direction:column-reverse;
+      gap:8px;
       padding:10px 14px calc(10px + env(safe-area-inset-bottom));
-      background:var(--paper); border-top:1px solid var(--line);
+      background:var(--paper);
+      border-top:1px solid var(--line);
     }
 
-    .add, .submit, .login-btn, .logout-btn { width:100%; }
+    .add, .submit, .login-btn, .logout-btn {
+      width:100%;
+    }
 
     .add {
-      background:white; color:var(--navy); border:1.5px solid var(--navy);
+      background:white;
+      color:var(--navy);
+      border:1.5px solid var(--navy);
     }
 
     .submit, .login-btn {
-      background:var(--green); color:white; letter-spacing:0.4px;
+      background:var(--green);
+      color:white;
+      letter-spacing:0.4px;
     }
 
     .logout-btn {
-      background:var(--red-soft); color:var(--red); margin-top:8px;
+      background:var(--red-soft);
+      color:var(--red);
+      margin-top:8px;
     }
 
     @media screen and (min-width:768px) {
-      .container { margin:36px auto 60px; padding:0 18px; }
-      .header { border-radius:var(--radius) var(--radius) 0 0; padding:34px 32px 30px; }
-      .header h2 { font-size:27px; }
+      .container {
+        margin:36px auto 60px;
+        padding:0 18px;
+      }
+
+      .header {
+        border-radius:var(--radius) var(--radius) 0 0;
+        padding:34px 32px 30px;
+      }
+
+      .header h2 {
+        font-size:27px;
+      }
 
       .box {
         border-radius:0 0 var(--radius) var(--radius);
-        border:1px solid var(--line); border-top:none;
+        border:1px solid var(--line);
+        border-top:none;
         box-shadow:0 20px 40px -18px rgba(22,35,63,0.25);
         padding:30px 32px 32px;
       }
 
-      .grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px 20px; }
-      .field.full { grid-column:1 / -1; }
-      .item-grid { grid-template-columns:2fr 1.2fr 1.2fr 0.8fr; gap:12px; }
-
-      .actions {
-        position:static; flex-direction:row; padding:0; margin-top:26px;
-        border-top:none; background:transparent;
+      .grid {
+        grid-template-columns:repeat(2,minmax(0,1fr));
+        gap:18px 20px;
       }
 
-      .add { width:auto; padding:0 20px; }
-      .submit { flex:1; }
+      .field.full {
+        grid-column:1 / -1;
+      }
+
+      .item-grid {
+        grid-template-columns:2fr 1.2fr 1.2fr 0.8fr;
+        gap:12px;
+      }
+
+      .actions {
+        position:static;
+        flex-direction:row;
+        padding:0;
+        margin-top:26px;
+        border-top:none;
+        background:transparent;
+      }
+
+      .add {
+        width:auto;
+        padding:0 20px;
+      }
+
+      .submit {
+        flex:1;
+      }
     }
   </style>
 </head>
@@ -287,9 +443,9 @@
     import {
       getAuth,
       GoogleAuthProvider,
-     signInWithPopup,
-onAuthStateChanged,
-signOut
+      signInWithPopup,
+      onAuthStateChanged,
+      signOut
     } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-auth.js";
 
     const firebaseConfig = {
@@ -311,31 +467,37 @@ signOut
     let currentUser = null;
     let stt = 0;
 
-  window.loginGoogle = async function () {
-  try {
-    await signInWithPopup(auth, provider);
-  } catch (error) {
-    alert("Lỗi đăng nhập: " + error.message);
-    console.error(error);
-  }
-};
+    console.log("Firebase initialized");
 
-    window.logoutGoogle = function () {
-      signOut(auth);
+    window.loginGoogle = async function () {
+      console.log("Bắt đầu đăng nhập Google");
+
+      try {
+        const result = await signInWithPopup(auth, provider);
+        console.log("Đăng nhập thành công:", result.user.email);
+      } catch (error) {
+        console.error("LOGIN ERROR:", error);
+        alert("Lỗi đăng nhập: " + error.message);
+      }
     };
 
-    getRedirectResult(auth).catch(function(error) {
-      alert("Lỗi đăng nhập: " + error.message);
-    });
+    window.logoutGoogle = async function () {
+      console.log("Đăng xuất");
+      await signOut(auth);
+    };
 
     onAuthStateChanged(auth, function(user) {
+      console.log("AUTH STATE:", user);
+
       currentUser = user;
 
       if (user) {
+        console.log("User email:", user.email);
         document.getElementById("loginBox").style.display = "none";
         document.getElementById("formBox").style.display = "block";
         document.getElementById("userEmail").innerText = user.email;
       } else {
+        console.log("Chưa đăng nhập");
         document.getElementById("loginBox").style.display = "block";
         document.getElementById("formBox").style.display = "none";
       }
@@ -446,6 +608,8 @@ signOut
         items
       };
 
+      console.log("DATA GỬI VỀ SHEET:", data);
+
       const btn = document.getElementById("submitBtn");
       btn.disabled = true;
       btn.innerText = "ĐANG GỬI...";
@@ -458,11 +622,13 @@ signOut
         },
         body: JSON.stringify(data)
       })
-      .then(() => {
+      .then(function(response) {
+        console.log("FETCH RESPONSE:", response);
         alert("Đã gửi đăng ký cấp phát đồng phục thành công.");
         location.reload();
       })
-      .catch(() => {
+      .catch(function(error) {
+        console.error("FETCH ERROR:", error);
         alert("Có lỗi khi gửi dữ liệu. Vui lòng thử lại.");
         btn.disabled = false;
         btn.innerText = "GỬI ĐĂNG KÝ";
